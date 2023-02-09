@@ -18,7 +18,7 @@ italic: <i>...</b>
 underline: <u>...</u>
 hyperlink: <a href=\"link\">name</a>
 image: <img src=\"source_link\" alt=\"alt_link\"/>")
-
+(defvar *debug* nil)
 (defun get-battery-capacity ()
   "Get battery capacity from *BATTERY-CAPACITY-PATH*"
   (parse-integer 
@@ -51,7 +51,7 @@ image: <img src=\"source_link\" alt=\"alt_link\"/>")
 	  ((< capacity *percent-to-notify*)
 	   (notify-send *notification-title* 
 			(format nil *notification-body* capacity)))
-	  (t (notify-send "Battery Level" "Battery is fine.")))))
+	  (*debug* (notify-send "Battery Level" "Battery is fine.")))))
 
 (defun in-timer-list? (timer)
   (if timer
