@@ -8,8 +8,8 @@
 (defvar *notify-time* 1 "Amount of time (in milliseconds) to show notifications.")
 (defvar *loop-time* 10)
 (defvar *suspend-command* "sudo pm-suspend")
-(defvar *percent-to-suspend* 20)
-(defvar *percent-to-notify* 90)
+(defvar *percent-to-suspend* 10)
+(defvar *percent-to-notify* 20)
 (defvar *notification-title* "Battery Low")
 (defvar *notification-body* "Battery is at ~A%"
   "The BODY can be in Markup. For example:
