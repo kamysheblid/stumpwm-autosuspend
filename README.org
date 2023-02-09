@@ -1,0 +1,16 @@
+* auto-suspend
+** Description
+   This stumpwm module auto suspends the computer when the battery
+   capacity is low.
+** Usage
+   Simply load the module, set =percent-to-suspend= (default is 10)
+   and =percent-to-notify= (default is 20), then =start-loop=.
+
+   #+begin_src lisp
+     (load-module "auto-suspend")
+     (setq auto-suspend:*percent-to-notify* 25)
+     (setq auto-suspend:*percent-to-suspend* 15)
+     (auto-suspend:main-loop)
+   #+end_src
+** License
+GPLv3
