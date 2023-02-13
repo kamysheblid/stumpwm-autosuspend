@@ -29,7 +29,7 @@ image: <img src=\"source_link\" alt=\"alt_link\"/>")
   "Get battery capacity from *BATTERY-CAPACITY-PATH*"
   (let ((status (with-open-file (status-file *battery-status-path*)
 		  (read-line status-file))))
-    (eq status "Charging")))
+    (string= status "Charging")))
 
 (defun notify-send (title body)
   "Send message to user using notify-send command"
