@@ -48,7 +48,7 @@ image: <img src=\"source_link\" alt=\"alt_link\"/>")
     (cond ((and (< capacity *percent-to-suspend*) (not (battery-charging?)))
 	   (notify-send "Battery Low" "Suspending...")
 	   (suspend))
-	  ((< capacity *percent-to-notify*)
+	  ((and (< capacity *percent-to-notify*) (not (battery-charging?)))
 	   (notify-send *notification-title* 
 			(format nil *notification-body* capacity)))
 	  (*debug* (notify-send "Battery Level" "Battery is fine.")))))
