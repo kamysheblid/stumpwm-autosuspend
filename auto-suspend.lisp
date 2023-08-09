@@ -54,10 +54,9 @@ it isnt suspending.")
 
 (defun main ()
   (let ((capacity (get-battery-capacity)))
-    (cond ((and (< capacity *percent-to-suspend*) (not (battery-charging?)))
-	   (notify-send "Battery Low" "Suspending...")
+    (cond ((and (not (battery-charging?)) (< capacity *percent-to-suspend*))
 	   (suspend))
-	  ((and (< capacity *percent-to-notify*) (not (battery-charging?)))
+	  ((and (not (battery-charging?)) (< capacity *percent-to-notify*))
 	   (notify-send *notification-title* 
 			(format nil *notification-body* capacity)))
 	  (*debug* (notify-send "Battery Level" "Battery is fine.")))))
