@@ -67,3 +67,6 @@ it isnt suspending.")
   (if (in-timer-list? *battery-check-timer*)
       (cancel-timer *battery-check-timer*))
   (setq *battery-check-timer* (run-with-timer 0 *loop-time* #'main)))
+
+(defmacro string-concatenate (string &rest strings)
+  `(concatenate 'string ,string ,@strings))
