@@ -59,7 +59,7 @@ it isnt suspending.")
 	  ((and (not (battery-charging?)) (< capacity *percent-to-notify*))
 	   (notify-send *notification-title* 
 			(format nil *notification-body* capacity)))
-	  (*debug* (notify-send "Battery Level" "Battery is fine.")))))
+	  (*debug* (notify-send "Battery Level" (string-concatenate  "Battery is fine."))))))
 
 (defun in-timer-list? (timer)
   (if timer
