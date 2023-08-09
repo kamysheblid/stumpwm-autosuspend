@@ -20,7 +20,11 @@ italic: <i>...</b>
 underline: <u>...</u>
 hyperlink: <a href=\"link\">name</a>
 image: <img src=\"source_link\" alt=\"alt_link\"/>")
-(defvar *debug* nil)
+
+(defvar *debug* nil "Set this to t to stop SUSPEND function from suspending the pc, this
+way you can test to find out where the problem is with the program if
+it isnt suspending.")
+
 (defun get-battery-capacity ()
   "Get battery capacity from *BATTERY-CAPACITY-PATH*"
   (parse-integer 
