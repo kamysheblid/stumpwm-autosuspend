@@ -39,15 +39,18 @@ it isnt suspending.")
 
 (defun notify-send (title body)
   "Send message to user using notify-send command"
-  (let ((notification-time-string (format nil "-t ~A " *notify-time*)))
-    (run-shell-command
-     (concatenate 'string "notify-send "
-		  notification-time-string
-		  "'" title "' "
-		  "'" body "'"))))
+  (let* ((notification-time-string (format nil "-t ~A " *notify-time*))
+	 (command (string-concatenate "notify-send "
+				      notification-time-string
+				      "'" title "' "
+				      "'" body "'")))
+    (run-shell-command command)
+    (if *debug* command)))
 
 (defun suspend () "Suspend the computer"
-  (run-shell-command *suspend-command*))
+  (if *debug*
+      (notify-send "DEBUG" "The *debug* var is t, otherwise pc would have suspended")
+      (run-shell-command *suspend-command*)))
 
 (defun main ()
   (let ((capacity (get-battery-capacity)))
