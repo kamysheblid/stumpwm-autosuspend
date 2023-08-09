@@ -5,7 +5,9 @@
 (defvar *battery-check-timer* nil "Holds the main loop timer")
 (defvar *battery-capacity-path* "/sys/class/power_supply/BAT0/capacity")
 (defvar *battery-status-path* "/sys/class/power_supply/BAT0/status")
-(defvar *notify-time* 1 "Amount of time (in milliseconds) to show notifications.")
+(defvar *notify-time* 1 "Amount of time (in milliseconds) to show notifications. The official
+documentation of =notify-send= claims it is time in milliseconds, but
+it seems more likely to be in units seconds.")
 (defvar *loop-time* 10)
 (defvar *suspend-command* "sudo pm-suspend")
 (defvar *percent-to-suspend* 10)
