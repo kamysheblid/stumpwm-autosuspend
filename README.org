@@ -4,7 +4,7 @@
    capacity is low.
 ** Usage
    Simply load the module, set =percent-to-suspend= (default is 10)
-   and =percent-to-notify= (default is 20), then =start-loop=.
+   and =percent-to-notify= (default is 20), then call =main-loop=.
 
    #+begin_src lisp
      (load-module "auto-suspend")

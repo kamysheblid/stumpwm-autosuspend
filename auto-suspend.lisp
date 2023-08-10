@@ -7,8 +7,9 @@
 (defvar *battery-status-path* "/sys/class/power_supply/BAT0/status")
 (defvar *notify-time* 1 "Amount of time (in milliseconds) to show notifications. The official
 documentation of =notify-send= claims it is time in milliseconds, but
-it seems more likely to be in units seconds.")
-(defvar *loop-time* 10)
+it seems more likely that it notifies for 10 seconds regardless of the
+value.")
+(defvar *loop-time* 30)
 (defvar *suspend-command* "sudo pm-suspend")
 (defvar *percent-to-suspend* 10)
 (defvar *percent-to-notify* 20)
