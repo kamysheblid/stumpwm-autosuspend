@@ -40,11 +40,15 @@ it isnt suspending.")
 
 (defun notify-send (title body)
   "Send message to user using notify-send command"
-  (let* ((notification-time-string (format nil "-t ~A " *notify-time*))
-	 (command (string-concatenate "notify-send "
-				      notification-time-string
-				      "'" title "' "
-				      "'" body "'")))
+  (let* (;(notification-time-string (format nil "-t ~A "
+					; *notify-time*)) this isnt
+					; even working right now due
+					; to upstream notify-send
+					; problems
+	 (command (concatenate 'string "notify-send "
+			       ;notification-time-string
+			       "'" title "' "
+			       "'" body "'")))
     (run-shell-command command)
     (if *debug* command)))
 
